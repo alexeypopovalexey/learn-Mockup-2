@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "61275f17dbf233b2dfc279f9",
+        "index": 0,
+        "picture": "http://placehold.it/32x32",
+        "about": "Velit amet est occaecat laborum non ipsum irure. Sunt culpa fugiat et ad cupidatat duis. Quis veniam deserunt labore excepteur sit. Reprehenderit pariatur amet consectetur aliquip est nulla nisi. Enim laboris cupidatat sunt do aute.\r\n"
+    },
+    {
+        "_id": "61275f17287f9d671b5b9a99",
+        "index": 1,
+        "picture": "../task/img/posts/post1.jpg",
+        "about": "How to rock the lip look that turns heads"
+    },
+    {
+        "_id": "61275f171beaa4f2f0c178b4",
+        "index": 2,
+        "picture": "../task/img/posts/post2.jpg",
+        "about": "Find the perfect shade for the season"
+    },
+    {
+        "_id": "61275f17ac4552500c07a663",
+        "index": 3,
+        "picture": "../task/img/posts/post3.jpg",
+        "about": "The 5 eye shadow secrets you never knew"
+    },
+    {
+        "_id": "61275f1786bf5c1328ca6571",
+        "index": 4,
+        "picture": "../task/img/posts/post4.jpg",
+        "about": "The pro-tips for at home hair dying"
+    }
+]

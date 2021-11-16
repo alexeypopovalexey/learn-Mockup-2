@@ -1,0 +1,139 @@
+.posts {
+    background-color: $dark-white;
+    &__container {
+        width: 100%;
+        @include flex (center, center, center, column);
+        max-width: 1440px;
+        margin: auto;
+    }
+    &__title {
+        font-family: $Serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 56px;
+        text-align: center;
+        color: $black;
+        margin-bottom: 35px;
+        margin-top: 50px;
+    }
+    &__content {
+        width: 84%;
+        @include flex (center, center, left, row);
+        flex-wrap: wrap;
+        margin: auto;
+        &--block {
+            width: 100%;
+        }
+    }
+    &__btn {
+        position: relative;
+        bottom: 20px;
+        font-family: $Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 21px;
+        text-align: center;
+        letter-spacing: 0.12em;
+        color: $white;
+        width: 80%;
+        max-width: 312px;
+        min-height: 61px;
+        background: $pink;
+        border: 4px solid $pink;
+        box-sizing: border-box;
+        border-radius: 300px;
+        margin-bottom: 110px;
+        cursor: pointer;
+        outline: none;
+        &:focus-visible {
+            color: $black;
+            background: $white;
+            border: 4px solid $pink;
+        }
+        &:hover {
+            color: $black;
+            background: $white;
+            border: 4px solid $pink;
+        }
+    }
+}
+
+.block {
+    margin-bottom: 35px;
+    &__img {
+        width: 100%;
+    }
+    &__subtitle {
+        margin-top: 25px;
+        margin-bottom: 50px;
+        font-family: $Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 29px;
+        letter-spacing: 0.01em;
+        color: $black;
+
+    }
+}
+
+@media (min-width: 768px) {
+    .posts {
+        padding-top: 55px;
+        padding-bottom: 40px;
+        &__container {
+            flex-wrap: wrap;
+        }
+        &__content{
+            width: 100%;
+            @include flex (center, center, left, row);
+            padding-top: 20px;
+            &--block {
+                margin: 0px 15px 3px 15px;
+                width: 41%;
+            }
+        }
+        &__btn {
+            position: relative;
+            top: 20px;
+        }
+    }
+    .block {
+        &__subtitle {
+            font-size: 20px;
+            line-height: 26px;
+            letter-spacing: 0.01em;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .posts {
+        &__container {
+            padding-top: 10px;
+        }
+        &__content {
+            width: 96%;
+            @include flex (space-around, center, left, row);
+            padding-top: 17px;
+            &--block {
+                margin: 0;
+                width: 22.5%;
+            }
+        }
+        &__btn {
+            position: static;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+    }
+    .block {
+        &__subtitle {
+            font-size: 26px;
+            line-height: 34px;
+            letter-spacing: 0.01em;
+        }
+    }
+}

@@ -1,0 +1,331 @@
+.line {
+    width: auto;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    line-height: 0;
+    &__img {
+        width: auto;
+    }
+}   
+
+
+.nav {
+
+    position: sticky;
+    background-color: rgba(255, 255, 255, .9);
+    width: 100%;
+    min-height: 50px;
+    max-height: 90px;
+    height: 10vh;
+    top: 0;
+    z-index: 2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    &__container {
+        margin: auto;
+        max-width: 1440px;
+        position: sticky;
+        width: 100%;
+        @include flex (space-between, center, left, row);
+        flex-wrap: wrap;
+
+    }
+    &__btn {
+        padding: 0;
+        border: none;
+        width: 59px;
+        height: 59px;
+        border-radius: 50%;
+        margin-left: 15px;
+        outline: none;
+        &:focus-visible {
+            transform: scale(1.1);
+        }
+        &--logo{
+            width: 59px;
+            height: 59px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        &--link {
+            display: none;
+            outline: none;
+            &:focus-visible {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__burger {
+        width: max-content;
+        height: 59px;
+        @include flex (left, center, center, row);
+        margin-right: 15px;
+        cursor: pointer;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        &:hover {
+            background-color: $black;
+            .nav__burger{
+                &--line {
+                    background-color: $white;
+                    &::before, &::after {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+        
+        &--line {
+            @extend %burger-lines;            
+            position: relative;
+            &::before {
+                @extend %burger-lines;          
+                content: ' ';
+                position: absolute;
+                left: 0;
+                bottom: 12px;
+                
+            }
+            &::after {          
+                @extend %burger-lines;       
+                content: ' ';
+                position: absolute;
+                left: 0;
+                top: 12px;
+            }
+        }
+        &--list {
+            position: relative;
+            top: 43px;
+            background-color: rgba(255, 255, 255, .9);
+            @include flex (center, center, center, column);
+            overflow: hidden;
+            animation-name: burger-dropdown;
+            animation-duration: 600ms;
+            animation-timing-function: ease-in;
+        }
+    }
+    &__list {
+        
+        &--elem {
+            font-family: $Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 38px;
+            letter-spacing: 0.16em;
+            color: $black;
+            text-decoration: none;
+            padding: 25px;
+            outline: none;
+                &:focus-visible {
+                    text-decoration: underline;
+                }
+            &:hover {
+                color: $pink;
+            }
+        }
+        &--btn {
+            align-items: center;
+            padding-top: 5px;
+            max-width: 124px;
+            max-height: 37px;
+            width: 80%;
+            height: 2rem;
+            font-family: $Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.12em;
+            color:  $black;
+            background: $white;
+            border: 2px solid $black;
+            box-sizing: border-box;
+            border-radius: 300px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            outline: none;
+            &:focus-visible {
+                background: $black;
+                color: $white;
+                border: 2px solid $white;
+            }
+            &:hover {
+                background: $black;
+                color: $white;
+                border: 2px solid $white;
+            }
+        }
+    }
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+}
+@media (min-width: 768px) { 
+    .line {
+        width: 100%;
+        &__img {
+            width: 100%;
+        }
+    }
+    .nav {
+        @include flex (space-between, center, left, row);
+        padding-top: 15px;
+        &__container {
+            padding-left: 25px;
+            padding-right: 10px;
+        }
+        &__logo {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            max-width: 100px;
+        }
+        &__btn {
+            width:  37px;
+            height: 37px;
+            &--logo{
+                width: 37px;
+                height: 37px;
+            }
+            &--link {
+                display: block;
+                font-family: $Sans;
+                font-weight: 500;
+                font-size: 20px;
+                letter-spacing: .2em;
+                padding-left: 10px;
+                text-transform: uppercase;
+                color: $black;
+                text-decoration: none;
+            }
+        }
+        &__burger {
+            
+            display: none;
+            &--list {
+                position: static;
+                @include flex (center, center, center, row);
+                animation: none;
+            }
+            
+        }
+        &__list {
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0);
+            @include flex (flex-end, center, center, row);
+            margin-right: 5px;
+            &--btn {
+                margin-bottom: 0;
+            }
+            &--elem {
+                font-size: 10px;
+                line-height: 13px;
+                letter-spacing: 0.16em;
+            }
+            &--btn {
+                width: auto;
+                padding: 7px 20px 7px 30px;
+                margin-left: 5px;
+                font-size: 10px;
+                line-height: 13px;
+                letter-spacing: 0.12em;
+            }
+        }
+        &__wrapper {
+            width: 80%;
+            height: auto;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .nav {
+        
+        &__list {
+            width: 60%;
+            &--btn {
+                
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav {
+        &__burger {
+            &--list {
+                margin: 0;
+                width: 100%;
+            }
+        }
+        &__list {
+            @include flex (space-between, center, center, row);
+            margin-right: 5%;
+        }
+        &__list {
+            &--elem {
+                font-size: 20px;
+                line-height: 38px;
+                letter-spacing: 0.16em;
+                
+            }
+        }
+        &__wrapper {
+            width: 60%;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .nav {
+        &__container {
+            padding: 1px 30px 1px 95px;
+        }
+        &__btn {
+            width: 59px;
+            height: 59px;
+            &--logo {
+                width: 59px;
+                height: 59px;
+            }
+            &--link {
+                font-size: 28px;
+                letter-spacing: .3em;
+                padding-left: 14px;
+            }
+        }
+        &__burger {
+            display: none;
+            &--list {
+            }
+        }
+        &__list {
+            width: 80%;
+            margin: 0;
+            @include flex (space-around, center, center, row);
+            &--elem {
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.16em;
+            }
+            &--btn {
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.12em;
+                margin-right: 7px;
+                align-items: center;
+                padding: 5px 25px 5px 25px;
+            }
+            
+        }
+        &__wrapper {
+            width: 60%;
+            padding: 0px 60px 0px 0px;
+        }
+    }
+}
